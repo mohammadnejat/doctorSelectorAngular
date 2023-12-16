@@ -4,7 +4,10 @@ import { Router } from '@angular/router'
 import { ApiService } from '../../api.service'
 import { CommonModule } from '@angular/common'
 import { ActivatedRoute } from '@angular/router'
-
+import { AccordionModule } from 'primeng/accordion'
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CdkAccordionModule } from '@angular/cdk/accordion'
 import {
   faSolidUserDoctor,
   faSolidHospital,
@@ -13,10 +16,12 @@ import {
   faSolidCheck
 } from '@ng-icons/font-awesome/solid'
 import { NgIcon, provideIcons } from '@ng-icons/core'
+import { ButtonModule } from 'primeng/button'
+
 @Component({
   selector: 'app-page1',
   standalone: true,
-  imports: [HeaderComponent, CommonModule, NgIcon],
+  imports: [HeaderComponent, CommonModule, NgIcon, AccordionModule],
   templateUrl: './page1.component.html',
   styleUrl: './page1.component.css',
   viewProviders: [

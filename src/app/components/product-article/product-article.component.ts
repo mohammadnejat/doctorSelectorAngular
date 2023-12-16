@@ -5,7 +5,8 @@ import {
   jamMessage,
   jamStarF,
   jamMessenger,
-  jamPhone
+  jamPhone,
+  jamChevronLeft
 } from '@ng-icons/jam-icons'
 import { faSolidPhoneVolume } from '@ng-icons/font-awesome/solid'
 @Component({
@@ -20,7 +21,8 @@ import { faSolidPhoneVolume } from '@ng-icons/font-awesome/solid'
       jamStarF,
       jamMessenger,
       jamPhone,
-      faSolidPhoneVolume
+      faSolidPhoneVolume,
+      jamChevronLeft
     })
   ]
 })

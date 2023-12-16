@@ -5,7 +5,7 @@ import { HomeComponent } from './page/home/home.component'
 import { RouterOutlet } from '@angular/router'
 import { ProductArticleComponent } from './components/product-article/product-article.component'
 import { HeaderComponent } from './components/header/header.component'
-import { ApiService } from './api.service'
+
 @Component({
   standalone: true,
   selector: 'app-root',

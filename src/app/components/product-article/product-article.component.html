@@ -1,74 +1,28 @@
 <article
   *ngFor="let product of products"
-  class="w-full p-4 mt-4 transition duration-300 bg-white rounded-md md:w-[700px] shadow-lg hover:shadow-2xl"
+  class="px-2 mt-4 transition duration-300 bg-white rounded-md shadow-lg w-[700px] hover:shadow-2xl"
 >
-  <div class="p-3 border border-gray-100 rounded-md">
-    <div class="flex justify-between mb-6">
-      <div class="flex">
-        <img
-          src="{{ product.img }}"
-          alt="#"
-          class="w-20 h-20 rounded-full md:w-24 md:h-24"
-        />
-        <div class="flex flex-col items-center gap-2 mt-2 mr-3">
-          <a class=""> {{ product.title }}</a>
-          <span class="text-sm font-normal text-gray-400 md:text-base">
+  <a [href]="product.id">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="{{ product.img }}" alt="#" class="w-16 h-16 rounded-full" />
+        <div class="flex flex-col gap-2 mt-2 mr-3">
+          {{ product.title }}
+
+          <span class="text-sm font-normal text-gray-500 md:text-base">
             {{ product.professional }}
+          </span>
+          <span class="text-sm font-normal text-gray-500 md:text-base">
+            {{ product.experince }} سال سابقه
           </span>
         </div>
       </div>
       <div class="">
-        <div
-          class="w-20 p-1 font-medium text-center text-white border rounded-md md:w-24 md:p-2 bg-cyan-800"
-        >
-          <p>{{ product.city }}</p>
-        </div>
+        <ng-icon
+          name="jamChevronLeft"
+          class="text-xl text-indigo-600"
+        ></ng-icon>
       </div>
     </div>
-    <div class="flex justify-around">
-      <div class="flex flex-col items-center">
-        <p class="text-sm font-bold md:text-base">{{ product.works }}+</p>
-        <span class="mt-3 text-xs font-medium text-gray-400 md:text-base">
-          مشاوره آنلاین
-        </span>
-      </div>
-      <div class="h-[60px] border-r border-gray-200"></div>
-      <div class="flex flex-col items-center">
-        <div class="flex gap-4">
-          <div class="flex items-center">
-            <ng-icon class="text-xl text-gray-500" name="jamMessage"></ng-icon>
-            <span> 681</span>
-          </div>
-          <div class="flex items-center">
-            <ng-icon class="text-xl text-yellow-500" name="jamStarF"></ng-icon>
-            <span>{{ product.rate }}</span>
-          </div>
-        </div>
-        <span class="mt-1 text-base font-normal text-gray-400">
-          امتیاز و نظر
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="h-[80px] bg-gray-200 flex flex-col gap-4 items-center py-2">
-    <p class="flex items-center gap-4 text-sm font-normal md:text-base">
-      مشاوره انلاین
-      <ng-icon class="text-2xl text-green-600" name="jamMessenger"></ng-icon>
-    </p>
-    <p class="flex items-center gap-4 text-sm font-normal md:text-base">
-      مشاوره تلفنی
-      <ng-icon
-        class="text-xl text-green-600"
-        name="faSolidPhoneVolume"
-      ></ng-icon>
-    </p>
-  </div>
-  <div class="w-full mt-2 bg-indigo-600 rounded-md">
-    <a
-      [href]="product.id"
-      class="flex justify-center w-full py-2 text-sm text-center text-white md:text-lg md:py-3 hover:shadow-lg"
-    >
-      مشاوره و اطلاعات بیشتر
-    </a>
-  </div>
+  </a>
 </article>
