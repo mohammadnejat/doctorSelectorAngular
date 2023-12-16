@@ -1,0 +1,212 @@
+<app-header></app-header>
+
+<section
+  *ngFor="let product of products"
+  class="mx-2 mb-10 md:mx-auto max-w-screen-2xl"
+>
+  <div class="rounded-lg">
+    <div class="grid grid-cols-1 gap-2 mt-8 rounded-lg md:mx-52 md:grid-cols-7">
+      <div class="p-6 bg-white rounded-lg md:col-span-4">
+        <div>
+          <div class="">
+            <div class="flex items-center gap-5">
+              <img
+                src="{{ product.img }}"
+                alt="#"
+                class="w-24 h-24 rounded-full"
+              />
+              <div>
+                <h3 class="mb-4 text-2xl font-bold">{{ product.title }}</h3>
+                <span
+                  [ngClass]="{
+                    flex: true,
+                    'items-center': true,
+                    'p-[4px]': true,
+                    'font-normal': true,
+                    'rounded-lg': true,
+                    'w-fit': true,
+                    'text-green-600': product.readyForWork,
+                    'text-red-600': !product.readyForWork,
+                    'bg-green-300': product.readyForWork,
+                    'bg-red-300': !product.readyForWork
+                  }"
+                >
+                  {{
+                    product.readyForWork ? "اماده برای مشاوره" : "در دسترس نیست"
+                  }}
+                </span>
+              </div>
+            </div>
+            <div class="">
+              <div
+                class="w-24 p-2 mt-2 font-medium text-center text-white border rounded-md bg-cyan-800"
+              >
+                <p>{{ product.city }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="flex items-center gap-2 mt-12 text-xl font-semibold">
+              درباره پزشک
+            </h2>
+            <h6 class="p-4 text-md md:w-10/12">{{ product.about }}</h6>
+          </div>
+          <div class="h-2 my-6 border-t border-gray-100"></div>
+          <div class="flex items-center gap-2 my-4">
+            <span class="text-lg font-bold">
+              ساعات پاسخ گویی به مشاوره تلفنی
+            </span>
+          </div>
+          <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+            <div
+              class="flex flex-col items-center justify-center p-2 text-white transition duration-300 bg-indigo-600 border-2 cursor-pointer hover:bg-white hover:text-black hover:border-indigo-600 md:w-36 rounded-2xl"
+            >
+              <p class="text-lg font-normal">شنبه</p>
+              <span class="font-normal"> 6 تا 12 </span>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center p-2 text-white transition duration-300 bg-indigo-600 border-2 cursor-pointer hover:bg-white hover:text-black hover:border-indigo-600 md:w-36 rounded-2xl"
+            >
+              <p class="text-lg font-normal">یکشنبه</p>
+              <span class="font-normal"> 2 تا 4 </span>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center p-2 text-white transition duration-300 bg-indigo-600 border-2 cursor-pointer hover:bg-white hover:text-black hover:border-indigo-600 md:w-36 rounded-2xl"
+            >
+              <p class="text-lg font-normal">دوشنبه</p>
+              <span class="font-normal"> 3 تا 6 </span>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center p-2 text-white transition duration-300 bg-indigo-600 border-2 cursor-pointer hover:bg-white hover:text-black hover:border-indigo-600 md:w-36 rounded-2xl"
+            >
+              <p class="text-lg font-normal">سه شنبه</p>
+              <span class="font-normal"> 8 تا 12 </span>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center p-2 text-white transition duration-300 bg-indigo-600 border-2 cursor-pointer hover:bg-white hover:text-black hover:border-indigo-600 md:w-36 rounded-2xl"
+            >
+              <p class="text-lg font-normal">چهارشنبه</p>
+              <span class="font-normal"> 9 تا 12 </span>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center p-2 text-white transition duration-300 bg-indigo-600 border-2 cursor-pointer hover:bg-white hover:text-black hover:border-indigo-600 md:w-36 rounded-2xl"
+            >
+              <p class="text-lg font-normal">پنج شنبه</p>
+              <span class="font-normal"> 4 تا 8 </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col p-2 pb-12 bg-white rounded-lg md:col-span-3 h-fit"
+      >
+        <div class="grid grid-cols-2 gap-6 mx-auto mt-4">
+          <div
+            class="flex flex-col items-center justify-center w-32 p-2 border rounded-2xl"
+          >
+            <ng-icon
+              name="faSolidHospital"
+              class="mb-2 text-3xl text-cyan-400"
+            ></ng-icon>
+            <span class="font-medium">{{ product.experince }}</span>
+            <p class="font-normal text-center text-gray-500">سابقه طبابت</p>
+          </div>
+          <div
+            class="flex flex-col items-center justify-center w-32 p-2 border rounded-2xl"
+          >
+            <ng-icon
+              class="mb-2 text-3xl text-green-600"
+              name="faSolidUserDoctor"
+            ></ng-icon>
+            <span class="font-medium">تخصص</span>
+            <p class="font-normal text-center text-gray-500">
+              {{ product.professional }}
+            </p>
+          </div>
+          <div
+            class="flex flex-col items-center w-32 p-2 border justify-justify-center rounded-2xl"
+          >
+            <ng-icon
+              name="faSolidFile"
+              class="mb-2 text-2xl text-red-500"
+            ></ng-icon>
+            <span class="font-medium">
+              {{ product.workNumber }}
+            </span>
+            <p class="font-normal text-center text-gray-500">شماره نظام</p>
+          </div>
+          <div
+            class="flex flex-col items-center w-32 p-2 border justify-justify-center rounded-2xl"
+          >
+            <ng-icon
+              name="faSolidStar"
+              class="mb-2 text-3xl text-yellow-500"
+            ></ng-icon>
+
+            <span class="font-medium">{{ product.rate }}</span>
+            <p class="font-normal text-center text-gray-500">رای مراجعین</p>
+          </div>
+        </div>
+        <div class="flex flex-col w-full gap-3 p-2">
+          <div class="flex items-center justify-between gap-4 px-4 md:px-0">
+            <div class="flex gap-4 mt-8">
+              <span class="text-xl font-semibold text-slate-600">
+                مشاوره تلفنی
+              </span>
+            </div>
+            <div></div>
+          </div>
+          <div class="flex items-center gap-3">
+            <ng-icon
+              name="faSolidCheck"
+              class="text-xl text-indigo-600"
+            ></ng-icon>
+            <span class="text-base">
+              قابلیت ارسال پیام و فایل تا ۲۴ ساعت بعد از مشاوره
+            </span>
+          </div>
+          <div class="flex items-center gap-3">
+            <ng-icon
+              name="faSolidCheck"
+              class="text-xl text-indigo-600"
+            ></ng-icon>
+            <span class="text-base">100% تضمین حریم خصوصی</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <ng-icon
+              name="faSolidCheck"
+              class="text-xl text-indigo-600"
+            ></ng-icon>
+            <span class="text-base">
+              شروع تماس بلافاصله بعد از ثبت درخواست
+            </span>
+          </div>
+          <div class="flex items-center gap-3">
+            <ng-icon
+              name="faSolidCheck"
+              class="text-xl text-indigo-600"
+            ></ng-icon>
+            <span class="text-base">هزینه مناسب و بهترین مشاوره</span>
+          </div>
+        </div>
+        <div class="h-2 my-6 border-t border-gray-100"></div>
+
+        <div class="md:items-center md:flex md:justify-around">
+          <div class="flex flex-col items-center px-4">
+            <h2 class="text-base font-medium">قیمت برای 10 دقیقه:</h2>
+            <p class="mt-2 black-text">
+              {{ formatPrice(product.price) }} تومان
+            </p>
+          </div>
+
+          <div
+            class="p-2 my-6 text-lg text-center text-indigo-600 transition duration-300 border-2 border-indigo-600 rounded-lg cursor-pointer md:px-10 md:p-4 hover:bg-indigo-600 hover:text-white"
+          >
+            مشاوره آنلاین
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
